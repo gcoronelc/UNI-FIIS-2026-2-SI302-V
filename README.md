@@ -19,12 +19,12 @@
 
 ## Delegado
 
-- Nombre: 
+- Nombre: VARGAS-MELGAR-WALTER RODRIGO
 - Correo: 
 
 ## Subdelegado
 
-- Nombre: 
+- Nombre: GUTIERREZ-TORRES-JUAN DIEGO
 - Correo: 
 
 # RECURSOS UTILES
