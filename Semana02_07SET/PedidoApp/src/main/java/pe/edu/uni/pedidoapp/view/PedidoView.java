@@ -4,6 +4,7 @@
  */
 package pe.edu.uni.pedidoapp.view;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import pe.edu.uni.pedidoapp.service.PedidoService;
 
@@ -18,6 +19,10 @@ public class PedidoView extends javax.swing.JFrame {
      */
     public PedidoView() {
         initComponents();
+        this.setEditStatus(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setResizable(false); 
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -135,6 +140,11 @@ public class PedidoView extends javax.swing.JFrame {
         btnLimpiar.setBackground(new java.awt.Color(204, 255, 204));
         btnLimpiar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
 
         btnSalir.setBackground(new java.awt.Color(255, 204, 204));
         btnSalir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -214,6 +224,7 @@ public class PedidoView extends javax.swing.JFrame {
             // Reporte
             txtImpuesto.setText("" + impuesto);
             txtTotal.setText("" + total);
+            this.setEditStatus(false);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(rootPane, "Ingrese un número.");
         } catch(RuntimeException e){
@@ -222,6 +233,10 @@ public class PedidoView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Bien bateria!!!");
         }
     }//GEN-LAST:event_btnProcesarActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        this.setEditStatus(true);
+    }//GEN-LAST:event_btnLimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -272,4 +287,19 @@ public class PedidoView extends javax.swing.JFrame {
     private javax.swing.JTextField txtImpuesto;
     private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
+
+    private void setEditStatus(boolean editStatus){
+        // Controles
+        txtImporte.setEnabled(editStatus);
+        btnProcesar.setEnabled(editStatus);
+        btnLimpiar.setEnabled(!editStatus);
+        // Limpiar cajas de texto
+        if(editStatus){
+            txtImporte.setText("");
+            txtImpuesto.setText("");
+            txtTotal.setText("");
+            txtImporte.requestFocus();
+        }
+    }
+
 }
