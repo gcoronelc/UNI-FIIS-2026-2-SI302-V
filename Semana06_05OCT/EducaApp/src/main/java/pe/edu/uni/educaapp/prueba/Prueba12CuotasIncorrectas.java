@@ -3,17 +3,17 @@ package pe.edu.uni.educaapp.prueba;
 import pe.edu.uni.educaapp.dto.MatriculaDto;
 import pe.edu.uni.educaapp.service.ProcesosService;
 
-public class Prueba06 {
+public class Prueba12CuotasIncorrectas {
 
 	public static void main(String[] args) {
 		try {
 			// Datos
 			MatriculaDto bean = new MatriculaDto();
-			bean.setIdCurso(6);
-			bean.setIdAlumno(11);
+			bean.setIdCurso(1);
+			bean.setIdAlumno(1);
 			bean.setIdEmpleado(3);
 			bean.setTipo("REGULAR");
-			bean.setCuotas(3);
+			bean.setCuotas(30);
 			// Proceso
 			ProcesosService procesosService = new ProcesosService();
 			bean = procesosService.matricular(bean);
