@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta de precio de curso</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="card">
+    <h1>Consulta de precio de curso</h1>
+    <p class="subtitle">Ingrese el ID del curso para consultar su precio.</p>
+
+    <form id="formConsulta" novalidate>
+      <label for="idCurso">ID del curso</label>
+      <div class="fila">
+        <input type="number" id="idCurso" name="idCurso" min="1" step="1"
+               placeholder="Ejemplo: 1" autocomplete="off" required>
+        <button type="submit" id="btnConsultar">Consultar</button>
+      </div>
+    </form>
+
+    <section id="resultado" class="resultado oculto" role="status" aria-live="polite"></section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
